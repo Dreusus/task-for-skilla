@@ -1,0 +1,21 @@
+.navigation__items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navigation__item {
+  display: flex;
+  height: 52px;
+}
+
+.navigation__icon {
+  margin: auto 14px;
+}
+
+.navigation__link {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.6);
+  height: 20px;
+  margin:auto 0;
+}
