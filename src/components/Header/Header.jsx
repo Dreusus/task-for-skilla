@@ -1,8 +1,14 @@
 import React from "react";
+import formatDate from "../../utils/formatDate";
 
 const Header = () => {
+  const currentDate = new Date();
+  const formattedDate = formatDate(currentDate)
+
   return (
-    <header>Header</header>
+    <header className="header">
+      <div className="header__date">{formattedDate}</div>
+    </header>
   )
 }
 
