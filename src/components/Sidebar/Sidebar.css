@@ -1,7 +1,7 @@
 .sidebar {
   width: 240px;
   background-color: #091336;
-  height: 963px;
+  height: 100vh;
 }
 
 .sidebar__logo {

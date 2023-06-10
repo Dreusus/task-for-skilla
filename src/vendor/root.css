@@ -9,4 +9,6 @@
   -moz-text-size-adjust: 100%;
   text-rendering: optimizeLegibility;
   display: flex;
+  height: 100vh;
 }
+
