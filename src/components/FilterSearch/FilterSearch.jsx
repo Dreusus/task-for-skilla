@@ -1,65 +1,76 @@
 import React, { useState } from 'react';
-import search from '../../images/search.svg'
+import search from '../../images/search.svg';
+import ArrowIcon from '../ArrowIcon/ArrowIcon';
 
-import ArrowIcon from '../ArrowIcon/ArrowIcon'
+const OPTIONS = {
+  types: ['Все типы', 'Входящие', 'Исходящие'],
+  employees: ['Все сотрудники', 'Константин', 'Полина'],
+  calls: ['Все клиенты', 'Новые клиенты', 'Все исполнители', 'Через приложение', 'Прочие звонки'],
+  errors: ['Все ошибки', 'Приветствие', 'Имя', 'Цена', 'Скидка', 'Предзаказ', 'Благодарность', 'Стоп слова'],
+  ratings: ['Все оценки', 'Распознать', 'Скрипт не использован', 'Плохо', 'Хорошо', 'Отлично'],
+};
 
 const FilterSearch = () => {
+  const [isOpen, setIsOpen] = useState({});
+  const [selectedOptions, setSelectedOptions] = useState({});
 
-  const [menuStates, setMenuStates] = useState({
-    types: false,
-    employees: false,
-    calls: false,
-    ratings: false,
-    errors: false,
-  });
-
-  const toggleMenu = (key) => {
-    setMenuStates((prevState) => ({
+  const makeToggleMenu = (key) => () => {
+    setIsOpen((prevState) => ({
       ...prevState,
       [key]: !prevState[key],
     }));
+  };
+
+  const handleOptionSelect = (option, key) => {
+    setSelectedOptions((prevOptions) => ({
+      ...prevOptions,
+      [key]: option,
+    }));
+    makeToggleMenu(key)();
+  };
+
+  const renderDropdownOptions = (key) => {
+    return (
+      <ul className="panel__dropdown">
+        {OPTIONS[key].map((option) => (
+          <li
+            key={option}
+            className="panel__drop-element"
+            onClick={() => handleOptionSelect(option, key)}
+          >
+            {option}
+          </li>
+        ))}
+      </ul>
+    );
   };
 
   return (
     <div className="panel">
       <div className="panel__container-left">
         <button className="panel__button-search">
-          <img src={search} alt='Кнопка поиска'></img>
+          <img src={search} alt="Кнопка поиска" />
         </button>
         <p className="panel__text">Поиск по звонкам</p>
       </div>
 
       <div className="panel__container-right">
-        <button className="panel__button" onClick={() => toggleMenu("types")}>
-          <p className="panel__text">Все типы</p>
-          <ArrowIcon className={menuStates["types"] ? "panel__arrow rotate" : "panel__arrow"} />
-        </button>
-
-        <button className="panel__button" onClick={() => toggleMenu("employees")}>
-          <p className="panel__text">Все сотрудники</p>
-          <ArrowIcon className={menuStates["employees"] ? "panel__arrow rotate" : "panel__arrow"} />
-        </button>
-
-        <button className="panel__button" onClick={() => toggleMenu("calls")}>
-          <p className="panel__text">Все звонки</p>
-          <ArrowIcon className={menuStates["calls"] ? "panel__arrow rotate" : "panel__arrow"} />
-        </button>
-
-        <button className="panel__button" onClick={() => toggleMenu("ratings")}>
-          <p className="panel__text">Все оценки</p>
-          <ArrowIcon className={menuStates["ratings"] ? "panel__arrow rotate" : "panel__arrow"} />
-        </button>
-
-        <button className="panel__button" onClick={() => toggleMenu("errors")}>
-          <p className="panel__text">Все ошибки</p>
-          <ArrowIcon className={menuStates["errors"] ? "panel__arrow rotate" : "panel__arrow"} />
-        </button>
-
+        {Object.keys(OPTIONS).map((optionKey) => (
+          <button
+            key={optionKey}
+            className="panel__button"
+            onClick={makeToggleMenu(optionKey)}
+          >
+            <p className="panel__text">
+              {selectedOptions[optionKey] || OPTIONS[optionKey][0]}
+            </p>
+            <ArrowIcon className={isOpen[optionKey] ? 'panel__arrow rotate' : 'panel__arrow'} />
+            {isOpen[optionKey] && renderDropdownOptions(optionKey)}
+          </button>
+        ))}
       </div>
-    </div >
-  )
-}
+    </div>
+  );
+};
 
 export default FilterSearch;
-
-
