@@ -3,7 +3,39 @@
   height: 65px;
   padding: 0;
   border-bottom: 1px solid #EAF0FA;
+  cursor: pointer;
+  position: relative;
+  
 }
+
+.call:hover {
+  background: rgba(212, 223, 243, 0.17);
+}
+
+.call:hover::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: -42px;
+  width: 42px;
+  height: 65px;
+  background-color: rgba(212, 223, 243, 0.17);
+  border-bottom: 1px solid #EAF0FA;
+  border-top: 1px solid #EAF0FA;;
+}
+
+.call:hover::after {
+  content: "";
+  position: absolute;
+  top: -1px;
+  right: -2px;
+  width: 2px;
+  height: 65px;
+  background-color: rgba(212, 223, 243, 0.17);
+  border-bottom: 1px solid #EAF0FA;
+  border-top: 1px solid #EAF0FA;;
+}
+
 
 .call:last-of-type {
   border: none;
