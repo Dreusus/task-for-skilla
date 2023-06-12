@@ -1,0 +1,66 @@
+.call {
+  display: flex;
+  height: 65px;
+  padding: 0;
+  border-bottom: 1px solid #EAF0FA;
+}
+
+.call__type {
+  width: 12px;
+  height: 12px;
+  margin: auto 37px auto 6px;
+}
+
+.call__time {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: 0em;
+  color: #122945;
+  margin: auto 53px auto 0;
+}
+
+.call__employee {
+  width: 32px;
+  height: 32px;
+  margin: auto 96px auto 0;
+}
+
+.call__number {
+  width: 246px;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: 0em;
+  color: #122945;
+  margin: auto 80px auto 0;
+}
+
+.call__source {
+  width: 197px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 140%;
+  color: #5E7793;
+  margin: auto 17px auto 0;
+}
+
+.call__estimation {
+  padding: 0;
+  width: 122px;
+  height: 40px;
+  margin: auto 390px auto 0;
+  border: 1px solid #002CFB;
+  border-radius: 4px;
+  background: white;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 140%;
+  color: #005FF8;
+}
+
+.call__duration {
+  margin: auto 0;
+}

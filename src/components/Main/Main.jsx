@@ -4,6 +4,7 @@ import arrowLeft from '../../images/arrow-left.svg';
 import arrowRight from '../../images/arrow-right.svg';
 import calendar from '../../images/icon-calendar.svg'
 import FilterSearch from "../FilterSearch/FilterSearch";
+import Calls from '../Calls/Calls'
 
 const Main = () => {
   return (
@@ -21,6 +22,7 @@ const Main = () => {
         </nav>
       </header>
       <FilterSearch />
+      <Calls/>
     </section>
   )
 }
