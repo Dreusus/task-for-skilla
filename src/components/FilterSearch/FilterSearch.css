@@ -21,17 +21,7 @@
   padding: 0;
   background: none;
   margin-right: 36px;
-  cursor: pointer
-}
-
-.panel__arrow {
-  transition: transform 0.4s ease;
-  fill: #ADBFDF;
-}
-
-.rotate {
-  transform: rotate(-180deg);
-  fill: #002CFB;
+  cursor: pointer;
 }
 
 .panel__button:last-of-type {
@@ -72,6 +62,14 @@
   width: 204px;
   text-align: left;
   margin: 0;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.panel__button:hover .panel__dropdown {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .panel__drop-element {
@@ -79,11 +77,25 @@
 }
 
 .panel__drop-element:first-child {
-  color:#002CFB;
+  color: #002CFB;
   opacity: 0.87;
 }
 
 .panel__drop-element:hover {
   background: rgba(0, 44, 251, 0.13);
   color: #122945;
+}
+
+.panel__arrow {
+  transition: transform 0.4s ease;
+  fill: #ADBFDF;
+}
+
+.rotate {
+  transform: rotate(-180deg);
+  fill: #002CFB;
+}
+
+.panel__button.selected .panel__text {
+  color: #002CFB;
 }
