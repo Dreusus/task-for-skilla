@@ -16,17 +16,17 @@
 * React.js
 
 ##
-Данные на гифках получены POST запросом с авторизацией через тестовый токен.
-date_start	- 01.06.2023 
-date_end	- 11.06.2023
-in_out - ""
-Использованы кастомные функции форматирования даты, длительности разговора, номера телефона
+Данные на гифках получены POST запросом с авторизацией через тестовый токен.  
+date_start	- 01.06.2023   
+date_end	- 11.06.2023  
+in_out - ""  
+Использованы кастомные функции форматирования даты, длительности разговора, номера телефона  
 
 ## Dropdown-menu
-![]()
+![](https://raw.githubusercontent.com/Dreusus/testtask-for-skilla/main/src/gif/dropdownmenu.gif)
 
 ## Sidebar-buttons
-![]()
+![](https://raw.githubusercontent.com/Dreusus/testtask-for-skilla/main/src/gif/Sidebar%20hover%20active.gif)
 
 ## Available Scripts
 
