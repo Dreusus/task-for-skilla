@@ -14,10 +14,23 @@
 }
 
 .panel__button {
+  align-items: center;
+  display: flex;
   border: none;
   padding: 0;
   background: none;
   margin-right: 36px;
+  cursor: pointer
+}
+
+.panel__arrow {
+  transition: transform 0.4s ease;
+  fill: #ADBFDF;
+}
+
+.panel__arrow.rotate {
+  transform: rotate(-180deg);
+  fill: #002CFB;
 }
 
 .panel__button:last-of-type {
