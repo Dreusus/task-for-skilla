@@ -5,6 +5,10 @@
   border-bottom: 1px solid #EAF0FA;
 }
 
+.call:last-of-type {
+  border: none;
+}
+
 .call__type {
   width: 12px;
   height: 12px;

@@ -36,7 +36,6 @@ const Calls = () => {
 
   return (
     <table className="calls">
-
       <thead className="calls__heading">
         <tr className="call_heading-items">
           <th className="calls__heading-item">Тип</th>
