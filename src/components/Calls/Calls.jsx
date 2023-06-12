@@ -34,6 +34,8 @@ const Calls = () => {
       });
   }, []);
 
+
+
   return (
     <table className="calls">
       <thead className="calls__heading">
@@ -50,9 +52,9 @@ const Calls = () => {
 
       <tbody className="calls__body">
         <tr className="calls">
-    {calls.map((call) => (
-      <Call key={call.id} data={call}/>
-    ))}
+          {calls.map((call) => (
+            <Call key={call.id} data={call} />
+          ))}
         </tr>
       </tbody>
     </table>
