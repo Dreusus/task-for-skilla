@@ -26,13 +26,13 @@ in_out - ""
 ![](https://raw.githubusercontent.com/Dreusus/testtask-for-skilla/main/src/gif/dropdownmenu.gif)
 
 ## Audio-player
-![](https://raw.githubusercontent.com/Dreusus/testtask-for-skilla/main/src/gif/player.gif)
-
+![](https://raw.githubusercontent.com/Dreusus/testtask-for-skilla/main/src/gif/player.gif)  
+(В ответе от сервера приходит пустой record, поэтому показывает длительность 00:00)    
+![](https://raw.githubusercontent.com/Dreusus/testtask-for-skilla/main/src/gif/API.png)![](https://raw.githubusercontent.com/Dreusus/testtask-for-skilla/main/src/gif/server-response.png)
 
 ## Sidebar-buttons
 ![](https://raw.githubusercontent.com/Dreusus/testtask-for-skilla/main/src/gif/Sidebar%20hover%20active.gif)
-(В ответе от сервера приходит пустой record, поэтому показывает длительность 00:00)  
-![](https://raw.githubusercontent.com/Dreusus/testtask-for-skilla/main/src/gif/API.png)![](https://raw.githubusercontent.com/Dreusus/testtask-for-skilla/main/src/gif/server-response.png)
+
 
 ## Available Scripts
 
