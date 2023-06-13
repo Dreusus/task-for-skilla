@@ -4,10 +4,10 @@ import outcoming from '../../images/outcoming.svg'
 import select from '../../images/select.svg'
 import formatPhoneNumber from '../../utils/formatPhoneNumber';
 import formatTimeDuration from '../../utils/formatTimeDuration';
-import formatTimeDate from '../../utils/formatTimeDate'
+import formatTimeDate from '../../utils/formatTimeDate';
+import AudioPlayer from '../AudioPlayer/AudioPlayer'
 
 const Call = ({ data }) => {
-
   const [recordingUrl, setRecordingUrl] = useState(null);
 
   function fetchRecording() {
@@ -59,7 +59,8 @@ const Call = ({ data }) => {
       <p className="call__number">{formatPhoneNumber(data.partner_data.phone)}</p>
       <p className="call__source">{data.source}</p>
       <button className="call__estimation">Распознать</button>
-      {recordingUrl ? <audio controls src={recordingUrl} className="audio-player" /> : <p className="call__duration">{formatTimeDuration(data.time)}</p>}
+      {recordingUrl ? <AudioPlayer src={recordingUrl} /> : <p className="call__duration">{formatTimeDuration(data.time)}</p>}
+  
     </td>
   )
 }
