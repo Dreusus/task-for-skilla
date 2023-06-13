@@ -27,8 +27,6 @@ in_out - ""
 
 ## Custom Audio-player
 ![](https://raw.githubusercontent.com/Dreusus/testtask-for-skilla/main/src/gif/AudioPlayer.gif)  
-(В ответе от сервера приходит пустой record, поэтому показывает длительность 00:00)    
-![](https://raw.githubusercontent.com/Dreusus/testtask-for-skilla/main/src/gif/API.png)![](https://raw.githubusercontent.com/Dreusus/testtask-for-skilla/main/src/gif/server-response.png)
 
 ## Sidebar-buttons
 ![](https://raw.githubusercontent.com/Dreusus/testtask-for-skilla/main/src/gif/Sidebar%20hover%20active.gif)
