@@ -52,3 +52,12 @@
   align-items: center;
   justify-content: center;
 }
+
+.download-icon__path {
+  fill: #ADBFDF;
+  transition: fill 0.3s ease-in-out;
+}
+
+.download-icon:hover .download-icon__path {
+  fill: #002CFB;; 
+}

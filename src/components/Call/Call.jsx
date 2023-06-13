@@ -15,7 +15,7 @@ const Call = ({ data }) => {
     const url = `https://api.skilla.ru/mango/getRecord?record=${data.record}&partnership_id=${data.partnership_id}`;
 
     fetch(url, {
-      method: 'GET',
+      method: 'POST',
       headers: {
         'Authorization': `Bearer ${token}`,
       },
@@ -56,11 +56,10 @@ const Call = ({ data }) => {
 
       <p className="call__time">{formatTimeDate(data.time)}</p>
       <img src={data.person_avatar} alt="Аватар сотрудника" className="call__employee" />
-      <p className="call__number">{formatPhoneNumber(data.from_number)}</p>
+      {data.in_out === 1 ? (<p className="call__number">{formatPhoneNumber(data.from_number)}</p>) : (<p className="call__number">{formatPhoneNumber(data.to_number)}</p>)}
       <p className="call__source">{data.source}</p>
       <button className="call__estimation">Распознать</button>
       {recordingUrl ? <AudioPlayer src={recordingUrl} /> : <p className="call__duration">{formatTimeDuration(data.time)}</p>}
-  
     </td>
   )
 }

@@ -1,53 +1,48 @@
-import React, { useState, useEffect, useRef } from "react";
-import downloadIcon from '../../images/download.svg';
-import playIcon from '../../images/play.svg';
+import React, { useRef, useState } from 'react';
 import pauseIcon from '../../images/pause.svg';
-
-const formatDuration = (seconds) => {
-  const minutes = Math.floor(seconds / 60);
-  const remainingSeconds = Math.floor(seconds % 60);
-  return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
-}
+import playIcon from '../../images/play.svg';
 
 const AudioPlayer = ({ src }) => {
+  const audioRef = useRef(null);
   const [playing, setPlaying] = useState(false);
-  const [progress, setProgress] = useState(0);
   const [duration, setDuration] = useState(0);
-  const audioRef = useRef();
+  const [progress, setProgress] = useState(0);
 
-  const updateProgress = () => {
-    const duration = audioRef.current.duration;
-    const currentTime = audioRef.current.currentTime;
-    const progress = (currentTime / duration) * 100;
-    setProgress(progress);
-    setDuration(currentTime);
+  const handlePlayPause = () => {
+    if (audioRef.current) {
+      if (playing) {
+        audioRef.current.pause();
+      } else {
+        audioRef.current.play();
+      }
+      setPlaying(!playing);
+    }
   };
 
-  useEffect(() => {
-    const audio = audioRef.current;
+  const formatDuration = duration => {
+    const minutes = Math.floor(duration / 60);
+    const seconds = Math.floor(duration % 60);
+    return `${minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
+  };
 
-    if (playing) {
-      audio.play();
-    } else {
-      audio.pause();
-    }
+  const handleTimeUpdate = () => {
+    const current = audioRef.current.currentTime;
+    setProgress((current / duration) * 100);
+  };
 
-    audio.addEventListener('timeupdate', updateProgress);
-    audio.addEventListener('loadedmetadata', updateProgress);
-    audio.addEventListener('ended', () => setPlaying(false));
-
-    return () => {
-      audio.removeEventListener('timeupdate', updateProgress);
-      audio.removeEventListener('loadedmetadata', updateProgress);
-      audio.removeEventListener('ended', () => setPlaying(false));
-    };
-  }, [playing]);
-
-  const handlePlayPause = () => setPlaying(!playing);
+  const handleLoadedData = () => {
+    setDuration(audioRef.current.duration);
+  };
 
   return (
     <div className='audio-player'>
-      <audio src={src} ref={audioRef} style={{display: 'none'}} />
+      <audio 
+        src={src} 
+        ref={audioRef} 
+        onTimeUpdate={handleTimeUpdate}
+        onLoadedData={handleLoadedData}
+        style={{display: 'none'}} 
+      />
       <p className='audio-player__duration'>{formatDuration(duration)}</p>
       <button className='play-pause-btn' onClick={handlePlayPause}>
         <img src={playing ? pauseIcon : playIcon} alt="Play/Pause" />
@@ -56,7 +51,19 @@ const AudioPlayer = ({ src }) => {
         <div className='progress-bar__inner' style={{ width: `${progress}%` }} />
       </div>
       <a href={src} download className="download-btn">
-        <img src={downloadIcon} alt="Download" />
+        <svg 
+          width="13" 
+          height="16" 
+          viewBox="0 0 13 16" 
+          xmlns="http://www.w3.org/2000/svg" 
+          className="download-icon"
+        >
+          <path 
+            d="M0 16H13V14.1176H0V16ZM13 5.64706H9.28571V0H3.71429V5.64706H0L6.5 12.2353L13 5.64706Z" 
+            fill="#ADBFDF" 
+            className="download-icon__path"
+          />
+        </svg>
       </a>
     </div>
   );
