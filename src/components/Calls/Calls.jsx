@@ -9,7 +9,7 @@ const Calls = () => {
     const url = "https://api.skilla.ru/mango/getList";
 
     const requestData = {
-      date_start: "2023-06-12",
+      date_start: "2023-01-12",
       date_end: "2023-06-12",
       in_out: "",
       limit: 50,

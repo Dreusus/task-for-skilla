@@ -1,13 +1,26 @@
 function formatPhoneNumber(phoneNumber) {
-  const cleanedNumber = phoneNumber.replace(/\D/g, '');
-  const match = cleanedNumber.match(/^(\d{1})(\d{3})(\d{3})(\d{2})(\d{2})$/); 
+  let phoneArray = phoneNumber.split('');
+  phoneArray = phoneArray.map(char => isNaN(char) ? '*' : char);
 
-  if (match) {
-    return `+${match[1]} (${match[2]}) ${match[3]}-${match[4]}-${match[5]}`;
+  while (phoneArray.length < 11) {
+    phoneArray.push('*');
   }
 
-  return phoneNumber;
-}
+  let formattedPhone = '+';
+  
+  for (let i = 0; i < 11; i++) {
+    formattedPhone += phoneArray[i];
 
+    if (i === 0) {
+      formattedPhone += ' (';
+    } else if (i === 3) {
+      formattedPhone += ') ';
+    } else if (i === 6 || i === 8) {
+      formattedPhone += '-';
+    }
+  }
+
+  return formattedPhone;
+}
 
 export default formatPhoneNumber;

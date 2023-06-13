@@ -56,7 +56,7 @@ const Call = ({ data }) => {
 
       <p className="call__time">{formatTimeDate(data.time)}</p>
       <img src={data.person_avatar} alt="Аватар сотрудника" className="call__employee" />
-      <p className="call__number">{formatPhoneNumber(data.partner_data.phone)}</p>
+      <p className="call__number">{formatPhoneNumber(data.from_number)}</p>
       <p className="call__source">{data.source}</p>
       <button className="call__estimation">Распознать</button>
       {recordingUrl ? <AudioPlayer src={recordingUrl} /> : <p className="call__duration">{formatTimeDuration(data.time)}</p>}
