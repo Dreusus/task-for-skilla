@@ -10,7 +10,7 @@ const OPTIONS = {
   errors: ['Все ошибки', 'Приветствие', 'Имя', 'Цена', 'Скидка', 'Предзаказ', 'Благодарность', 'Стоп слова'],
 };
 
-const FilterSearch = () => {
+const FilterSearch = ({ setFilters }) => {
   const [isOpen, setIsOpen] = useState({});
   const [selectedOptions, setSelectedOptions] = useState({
     types: 'Все типы',
@@ -19,7 +19,6 @@ const FilterSearch = () => {
     ratings: 'Все оценки',
     errors: 'Все ошибки',
   });
-  const [isFiltered, setIsFiltered] = useState(false);
   const [selectedOption, setSelectedOption] = useState({});
 
   const makeToggleMenu = (key) => () => {
@@ -40,10 +39,14 @@ const FilterSearch = () => {
       [key]: option,
     }));
 
+    setFilters(prevOptions => ({
+      ...prevOptions,
+      [key]: option,
+    }));
+
     const updatedOptions = [option, ...OPTIONS[key].filter((item) => item !== option)];
     OPTIONS[key] = updatedOptions;
     makeToggleMenu(key)();
-    setIsFiltered(true);
   };
 
   const resetFilters = () => {
@@ -54,8 +57,14 @@ const FilterSearch = () => {
       ratings: 'Все оценки',
       errors: 'Все ошибки',
     });
-    setIsFiltered(false);
     setSelectedOption({});
+    setFilters({
+      types: 'Все типы',
+      employees: 'Все сотрудники',
+      calls: 'Все звонки',
+      ratings: 'Все оценки',
+      errors: 'Все ошибки',
+    });
   };
 
   const renderDropdownOptions = (key) => (
@@ -85,7 +94,7 @@ const FilterSearch = () => {
       </div>
 
       <div className="panel__container-right">
-        {isFiltered && (
+        {Object.keys(selectedOption).length > 0 && (
           <button className="panel__button reset-button" onClick={resetFilters}>
             <span className="panel__text">Сбросить фильтры</span>
             <svg width="9" height="9" viewBox="0 0 9 9" fill="#ADBFDF" xmlns="http://www.w3.org/2000/svg">

@@ -1,10 +1,9 @@
-import React from "react";
-import buttonBalance from '../../images/button-balance.svg';
+import React from 'react';
+import Calls from '../Calls/Calls';
 import arrowLeft from '../../images/arrow-left.svg';
 import arrowRight from '../../images/arrow-right.svg';
-import calendar from '../../images/icon-calendar.svg'
-import FilterSearch from "../FilterSearch/FilterSearch";
-import Calls from '../Calls/Calls'
+import buttonBalance from '../../images/button-balance.svg';
+import calendar from '../../images/icon-calendar.svg';
 
 const Main = () => {
   return (
@@ -15,13 +14,12 @@ const Main = () => {
           <img src={buttonBalance} alt="кнопка пополнить баланс"></img>
         </button>
         <nav className="main__calendar">
-          <img src={arrowLeft} ></img>
-          <img src={calendar} className="main__calendar-icon"></img>
+          <img src={arrowLeft} alt="стрелка влево"></img>
+          <img src={calendar} className="main__calendar-icon" alt="календарь"></img>
           <p className="main__calendar-text">3 дня</p>
-          <img src={arrowRight}></img>
+          <img src={arrowRight} alt="стрелка вправо"></img>
         </nav>
       </header>
-      <FilterSearch />
       <Calls/>
     </section>
   )
