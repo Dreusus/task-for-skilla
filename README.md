@@ -31,6 +31,9 @@ in_out - ""
 ## Sidebar-buttons
 ![](https://raw.githubusercontent.com/Dreusus/testtask-for-skilla/main/src/gif/Sidebar%20hover%20active.gif)
 
+## Sorted calls
+![](https://raw.githubusercontent.com/Dreusus/testtask-for-skilla/main/src/gif/Sorted.gif)
+
 
 ## Available Scripts
 
