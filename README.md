@@ -16,7 +16,7 @@
 * React.js
 
 ##
-Данные получены POST запросом с авторизацией через тестовый токен.  
+Список звонков, записи разговоров получены POST запросоми с авторизацией через тестовый токен.  
 date_start	- 01.01.2023   
 date_end	- 11.06.2023  
 in_out - ""  
@@ -28,12 +28,11 @@ in_out - ""
 ## Custom Audio-player
 ![](https://raw.githubusercontent.com/Dreusus/testtask-for-skilla/main/src/gif/AudioPlayer.gif)  
 
-## Sidebar-buttons
-![](https://raw.githubusercontent.com/Dreusus/testtask-for-skilla/main/src/gif/Sidebar%20hover%20active.gif)
-
 ## Sorted calls
 ![](https://raw.githubusercontent.com/Dreusus/testtask-for-skilla/main/src/gif/Sorted.gif)
 
+## Sidebar-buttons
+![](https://raw.githubusercontent.com/Dreusus/testtask-for-skilla/main/src/gif/Sidebar%20hover%20active.gif)
 
 ## Available Scripts
 
